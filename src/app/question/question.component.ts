@@ -43,7 +43,7 @@ export class QuestionComponent implements OnInit {
           });
         }, (err) => {
           console.error(err);
-          this.error = err._body;
+          this.error = JSON.parse(err._body).message;
           this.loader = false;
         });
   }

@@ -22,7 +22,12 @@ var app_component_1 = require("./app.component");
 var app_resolver_1 = require("./app.resolver");
 var app_service_1 = require("./app.service");
 var home_1 = require("./home");
-var no_content_1 = require("./no-content");
+var question_1 = require("./question");
+var user_1 = require("./user");
+var ng2_gridstack_1 = require("ng2-gridstack/ng2-gridstack");
+// import { Gridster2Module } from 'angular2gridster';
+var angular_gridster2_1 = require("angular-gridster2");
+var material_1 = require("@angular/material");
 var x_large_1 = require("./home/x-large");
 require("../styles/styles.scss");
 require("../styles/headings.css");
@@ -79,14 +84,21 @@ AppModule = __decorate([
         declarations: [
             app_component_1.AppComponent,
             home_1.HomeComponent,
-            no_content_1.NoContentComponent,
-            x_large_1.XLargeDirective
+            question_1.QuestionComponent,
+            user_1.UserComponent,
+            x_large_1.XLargeDirective,
+            ng2_gridstack_1.GridStackComponent,
+            ng2_gridstack_1.GridStackItemDirective,
         ],
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
             http_1.HttpModule,
-            router_1.RouterModule.forRoot(app_routes_1.ROUTES, { useHash: true, preloadingStrategy: router_1.PreloadAllModules })
+            // Gridster2Module,
+            angular_gridster2_1.GridsterModule,
+            forms_1.ReactiveFormsModule,
+            material_1.MaterialModule,
+            router_1.RouterModule.forRoot(app_routes_1.ROUTES, { useHash: true, preloadingStrategy: router_1.PreloadAllModules }),
         ],
         providers: [
             environment_1.ENV_PROVIDERS,

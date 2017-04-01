@@ -56,7 +56,7 @@ export class UserComponent implements OnInit {
         this.submitted = true;
       }, (err) => {
         console.error(err);
-        this.error = err._body;
+        this.error = JSON.parse(err._body).message;
         this.loader = false;
       });
   }

@@ -5,21 +5,23 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UserService {
   private url: string;
+  private users: string;
 
   constructor(private http: Http) {
-    this.url = 'http://hamzatei.fr/projets/lumen-rest-api/public/';
+    this.url = window['apiService'].host;
+    this.users = window['apiService'].users;
   }
 
   public findAll() {
-    return this.get(`users`);
+    return this.get(this.users);
   }
 
   public findById(id: number) {
-    return this.get(`users/${id}`);
+    return this.get(this.users + '/' + id);
   }
 
   public create(data: Object) {
-    return this.http.post(this.url + `users`, data)
+    return this.http.post(this.url + this.users, data)
         .map((res) => res.json());
   }
 

@@ -29,9 +29,9 @@ import { QuestionComponent } from './question';
 import { UserComponent } from './user';
 
 import { GridStackComponent, GridStackItemDirective } from 'ng2-gridstack/ng2-gridstack';
-// import { Gridster2Module } from 'angular2gridster';
+import { GridsterModule } from 'angular2gridster';
 
-import { GridsterModule } from 'angular-gridster2';
+// import { GridsterModule } from 'angular-gridster2';
 import { MaterialModule } from '@angular/material';
 
 import { XLargeDirective } from './home/x-large';

@@ -70,3 +70,12 @@ dll/
 *.css.shim.ts
 *.ngsummary.json
 *.shim.ngstyle.ts
+src/app/app.component.js
+src/app/forms/CustomValidators.js
+src/app/home/home.component.js
+src/app/home/index.js
+src/app/question/index.js
+src/app/user/index.js
+src/app/user/shared/user.service.js
+src/app/user/user.component.js
+src/app/user/user.js

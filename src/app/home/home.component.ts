@@ -3,7 +3,7 @@ import { GridsterConfig } from 'angular-gridster2/dist/gridsterConfig.interface'
 import { QuestionService } from '../question/shared/question.service';
 import { UserService } from '../user/shared/user.service';
 import * as _ from 'lodash';
-import { IGridsterOptions } from 'angular2gridster';
+import { IGridsterDraggableOptions, IGridsterOptions } from 'angular2gridster';
 
 @Component({
   selector: 'home',
@@ -14,13 +14,16 @@ export class HomeComponent implements OnInit {
   public questions: Object[];
   public options: GridsterConfig;
   public gridsterConfig: IGridsterOptions = {
-    lanes: 5,
+    lanes: 3,
     direction: 'vertical',
     dragAndDrop: true
   };
-  public widgets: Array<any> = [
+  public gridsterDraggableOptions: IGridsterDraggableOptions = {
+    handlerClass: 'draggable-item'
+  };
+  public widgets: any[] = [
     {
-      x: 0, y: 0, w: 1, h: 2,
+      x: 0, y: 0, w: 1, h: 1,
       title: 'Basic form inputs 1',
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ' +
       'dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ' +
@@ -29,7 +32,7 @@ export class HomeComponent implements OnInit {
       'laborum.'
     },
     {
-      x: 1, y: 0, w: 2, h: 1,
+      x: 1, y: 0, w: 1, h: 1,
       title: 'Basic form inputs 2',
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ' +
       'dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ' +
@@ -38,7 +41,7 @@ export class HomeComponent implements OnInit {
       'laborum.'
     },
     {
-      x: 1, y: 1, w: 2, h: 1,
+      x: 2, y: 0, w: 1, h: 1,
       title: 'Basic form inputs 3',
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ' +
       'dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ' +
@@ -47,7 +50,7 @@ export class HomeComponent implements OnInit {
       'laborum.'
     },
     {
-      x: 3, y: 0, w: 1, h: 2,
+      x: 0, y: 1,  w: 1, h: 1,
       title: 'Basic form inputs 4',
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ' +
       'dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ' +
@@ -79,10 +82,13 @@ export class HomeComponent implements OnInit {
                     this.users,
                     (user) => user['id'] === parseInt(question.usr_id)
                   );
-                  question.name = this.currentUser.name;
-                  question.surname = this.currentUser.surname;
-                  question.color = this.getColorStorage(question);
-                  question.initCallback = this.itemInit.bind(this);
+
+                  if (!_.isEmpty(this.currentUser)) {
+                    question.name = this.currentUser.name;
+                    question.surname = this.currentUser.surname;
+                    question.color = this.getColorStorage(question);
+                    question.initCallback = this.itemInit.bind(this);
+                  }
                 });
 
                 this.questions = _.reverse(questions);
@@ -102,22 +108,22 @@ export class HomeComponent implements OnInit {
     let container: number = this.element.nativeElement.offsetWidth;
     let colWidth: number = (container - margin) / 3;
 
-    this.options = {
-      gridType: 'fixed',
-      compactUp: false,
-      compactLeft: false,
-      itemChangeCallback: this.itemChange.bind(this),
-      margin: margin,
-      maxCols: 3,
-      fixedColWidth: colWidth,
-      fixedRowHeight: 325,
-      outerMargin: true,
-      draggable: {
-        enabled: true,
-        stop: this.eventStop.bind(this)
-      },
-      swap: false
-    };
+    // this.options = {
+    //   gridType: 'fixed',
+    //   compactUp: false,
+    //   compactLeft: false,
+    //   itemChangeCallback: this.itemChange.bind(this),
+    //   margin: margin,
+    //   maxCols: 3,
+    //   fixedColWidth: colWidth,
+    //   fixedRowHeight: 325,
+    //   outerMargin: true,
+    //   draggable: {
+    //     enabled: true,
+    //     stop: this.eventStop.bind(this)
+    //   },
+    //   swap: true
+    // };
 
     this.question.findAll(true)
       .subscribe(
@@ -130,10 +136,13 @@ export class HomeComponent implements OnInit {
                 this.users,
                 (user) => user['id'] === parseInt(question.usr_id)
               );
-              question.name = this.currentUser.name;
-              question.surname = this.currentUser.surname;
-              question.color = this.getColorStorage(question);
-              question.initCallback = this.itemInit.bind(this);
+
+              if (!_.isEmpty(this.currentUser)) {
+                question.name = this.currentUser.name;
+                question.surname = this.currentUser.surname;
+                question.color = this.getColorStorage(question);
+                question.initCallback = this.itemInit.bind(this);
+              }
             });
 
             this.difference = _.differenceWith(

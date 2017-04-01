@@ -1,21 +1,21 @@
-<gridster class="gridster" [options]="options">
-    <gridster-item [item]="question" *ngFor="let question of questions">
-        <div class="default-color {{question?.color}}" (click)="changeColor(question)"></div>
-        <p>
-            <span class="name">{{question?.name}} <span class="surname">{{question?.surname}}</span></span>
-            {{question?.content}}
-        </p>
-    </gridster-item>
+<!--<gridster class="gridster" [options]="options">-->
+    <!--<gridster-item [item]="question" *ngFor="let question of questions">-->
+        <!--<div class="default-color {{question?.color}}" (click)="changeColor(question)"></div>-->
+        <!--<p>-->
+            <!--<span class="name">{{question?.name}} <span class="surname">{{question?.surname}}</span></span>-->
+            <!--{{question?.content}}-->
+        <!--</p>-->
+    <!--</gridster-item>-->
 
-    <div class="loader" *ngIf="loader">
-        <md-progress-circle
-                class="example-margin"
-                color="warn"
-                mode="indeterminate"
-        >
-        </md-progress-circle>
-    </div>
-</gridster>
+    <!--<div class="loader" *ngIf="loader">-->
+        <!--<md-progress-circle-->
+                <!--class="example-margin"-->
+                <!--color="warn"-->
+                <!--mode="indeterminate"-->
+        <!--&gt;-->
+        <!--</md-progress-circle>-->
+    <!--</div>-->
+<!--</gridster>-->
 
 <!--<gridStack w="12" animate="true">-->
     <!--<div gridStackItem *ngFor="let question of questions"-->
@@ -42,12 +42,14 @@
 <!--&gt;-->
 <!--</gridStack>-->
 
-<!--<gridster [options]="gridsterConfig" [draggableOptions]="{ handlerClass: 'panel-heading' }">-->
-    <!--<gridster-item *ngFor="let question of widgets" [x]="question.x" [y]="question.y" [w]="4" [h]="2">-->
-        <!--&lt;!&ndash;<div class="default-color {{question?.color}}" (click)="changeColor(question)"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<p>&ndash;&gt;-->
-            <!--&lt;!&ndash;<span class="name">{{question?.name}} <span class="surname">{{question?.surname}}</span></span>&ndash;&gt;-->
-            <!--&lt;!&ndash;{{question?.content}}&ndash;&gt;-->
-        <!--&lt;!&ndash;</p>&ndash;&gt;-->
-    <!--</gridster-item>-->
-<!--</gridster>-->
+<gridster [options]="gridsterConfig" [draggableOptions]="gridsterDraggableOptions">
+    <gridster-item *ngFor="let question of widgets" [x]="question.x" [y]="question.y" [w]="question.w" [h]="question.h">
+        <div class="draggable-item">
+            <div class="default-color {{question?.color}}" (click)="changeColor(question)"></div>
+            <div>
+                <span class="name">{{question?.name}} <span class="surname">{{question?.surname}}</span></span>
+                {{question?.content}}
+            </div>
+        </div>
+    </gridster-item>
+</gridster>
