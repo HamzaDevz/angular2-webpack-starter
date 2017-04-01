@@ -1,0 +1,65 @@
+/** Scope question **/
+
+.question {
+  padding: 0;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.question md-card-content {
+  padding: 20px;
+
+}
+
+.question .header {
+  background-color: #CB0E2C;
+  color: #ffffff;
+}
+
+.question .header p {
+  text-align: center;
+  padding: 20px;
+}
+
+.question .form-content {
+  text-align: center;
+}
+
+.question .form-content md-input-container {
+  width: 50%;
+}
+
+.question .form-content md-input-container textarea {
+  height: 300px;
+}
+
+.question .error {
+  color: rgb(221,44,0);
+  font-size: 12px;
+}
+
+.question .loader {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.question .loader:before {
+  position: absolute;
+  content: '';
+  opacity: .5;
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+}
+
+.question .loader md-progress-circle {
+  display: flex;
+  height: 100%;
+  width: 100px;
+  overflow: hidden;
+  margin: auto;
+}
+

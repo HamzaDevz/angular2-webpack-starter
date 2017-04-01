@@ -1,0 +1,60 @@
+/** Scope User **/
+
+.user {
+  padding: 0;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.user md-card-content {
+  padding: 20px;
+
+}
+
+.user .header {
+  background-color: #CB0E2C;
+  color: #ffffff;
+}
+
+.user .header p {
+  text-align: center;
+  padding: 20px;
+}
+
+.user .form-content {
+  text-align: center;
+}
+
+.user .form-content md-input-container {
+  width: 50%;
+}
+
+.user .error {
+  color: rgb(221,44,0);
+  font-size: 12px;
+}
+
+.user .loader {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.user .loader:before {
+  position: absolute;
+  content: '';
+  opacity: .5;
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+}
+
+.user .loader md-progress-circle {
+  display: flex;
+  height: 100%;
+  width: 100px;
+  overflow: hidden;
+  margin: auto;
+}

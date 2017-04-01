@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'Nissan';
+    src: url('../fonts/nissan-ag-regular.otf');
+}
+
+html, body, app, main, home {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+body {
+    font-family: 'Nissan', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #EEEEEE;
+    margin: 0;
+}
+
+.container-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.container-loader i {
+    color: #CB0E2C;
+}
+
+snack-bar-container {
+    color: #2ecc71;
+    background-color: #dff0d8 !important; /* FIXME: create a component snackBar to delete important */
+    border-color: #d6e9c6;
+}
+
+snack-bar-container .mat-simple-snackbar-message {
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    color: #27ae60;
+}

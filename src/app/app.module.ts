@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {
   NgModule,
@@ -25,8 +25,15 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
-import { AboutComponent } from './about';
-import { NoContentComponent } from './no-content';
+import { QuestionComponent } from './question';
+import { UserComponent } from './user';
+
+import { GridStackComponent, GridStackItemDirective } from 'ng2-gridstack/ng2-gridstack';
+// import { Gridster2Module } from 'angular2gridster';
+
+import { GridsterModule } from 'angular-gridster2';
+import { MaterialModule } from '@angular/material';
+
 import { XLargeDirective } from './home/x-large';
 
 import '../styles/styles.scss';
@@ -51,16 +58,22 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
     HomeComponent,
-    NoContentComponent,
-    XLargeDirective
+    QuestionComponent,
+    UserComponent,
+    XLargeDirective,
+    GridStackComponent,
+    GridStackItemDirective,
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    // Gridster2Module,
+    GridsterModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

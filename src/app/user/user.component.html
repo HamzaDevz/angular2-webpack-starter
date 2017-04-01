@@ -1,0 +1,57 @@
+<div [hidden]="submitted">
+  <md-card class="user">
+    <div class="header">
+      <p>Register</p>
+    </div>
+
+    <md-card-content>
+      <form [formGroup]="contactForm" novalidate>
+        <div class="form-content">
+          <div>
+            <md-input-container>
+              <input mdInput required type="text" formControlName="name" placeholder="Enter your name">
+            </md-input-container>
+            <div [hidden]="contactForm.controls.name.valid || contactForm.controls.name.pristine"
+                 class="error">
+              Name is required
+            </div>
+          </div>
+          <div>
+            <md-input-container>
+              <input mdInput required type="text" formControlName="surname" placeholder="Enter your surname">
+            </md-input-container>
+            <div [hidden]="contactForm.controls.surname.valid || contactForm.controls.surname.pristine"
+                 class="error">
+              Surname is required
+            </div>
+          </div>
+          <div>
+            <md-input-container>
+              <input mdInput type="email" formControlName="email" placeholder="Enter your email (optional)">
+            </md-input-container>
+            <div [hidden]="contactForm.controls.email.valid || contactForm.controls.email.pristine"
+                 class="error">
+              Email is malformed
+            </div>
+          </div>
+          <div [hidden]="!error.length"
+               class="error">
+            {{error}}
+          </div>
+          <md-card-actions>
+            <button md-button type="button" (click)="submitForm(contactForm.value)" [disabled]="!contactForm.valid">Submit</button>
+          </md-card-actions>
+        </div>
+      </form>
+      <div class="loader" *ngIf="loader">
+        <md-progress-circle
+                class="example-margin"
+                color="warn"
+                mode="indeterminate"
+        >
+        </md-progress-circle>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>
+

@@ -1,0 +1,37 @@
+<div>
+    <div *ngIf="userData">
+        <md-card class="question">
+            <div class="header">
+                <p>Give us your feedback</p>
+            </div>
+
+            <md-card-content>
+                <form [formGroup]="questionForm" novalidate>
+                    <div class="form-content">
+                        <div>
+                            <md-input-container>
+                                <textarea mdInput required formControlName="content" placeholder="Your Feedback"></textarea>
+                            </md-input-container>
+                            <div [hidden]="questionForm.controls.content.valid || questionForm.controls.content.pristine"
+                                 class="error">
+                                Content is required
+                            </div>
+                        </div>
+                        <md-card-actions>
+                            <button md-button type="button" (click)="submitForm(questionForm.value)" [disabled]="!questionForm.valid">Submit</button>
+                        </md-card-actions>
+                    </div>
+                </form>
+                <div class="loader" *ngIf="loader">
+                    <md-progress-circle
+                            class="example-margin"
+                            color="warn"
+                            mode="indeterminate"
+                    >
+                    </md-progress-circle>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+    <user-form (userCreation)="userCreation($event)"></user-form>
+</div>

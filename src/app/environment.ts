@@ -7,9 +7,16 @@ import {
   ApplicationRef,
   enableProdMode
 } from '@angular/core';
+
+import { QuestionService } from './question/shared/question.service';
+import { UserService } from './user/shared/user.service';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
+
 // Environment Providers
 let PROVIDERS: any[] = [
-  // common env directives
+  QuestionService,
+  UserService,
+  CookieService,
 ];
 
 // Angular debug tools in the dev console

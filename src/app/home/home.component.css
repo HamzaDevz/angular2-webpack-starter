@@ -1,1 +1,93 @@
-/*styles for home content only*/
+.gridster {
+    width: 100%;
+    height: 100%;
+}
+
+.gridster gridster-item {
+    overflow: auto;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    text-align: justify;
+    font-size: 28px;
+}
+
+.gridster gridster-item .default-color {
+    position: absolute;
+    top:0;
+    left:0;
+    cursor: pointer;
+    z-index: 10;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50px 50px 0 0;
+    border-color: #007bff transparent transparent transparent;
+}
+
+.gridster gridster-item .red {
+    border-color: #EA2F3D transparent transparent transparent;
+}
+
+.gridster gridster-item .orange {
+    border-color: #FF911A transparent transparent transparent;
+}
+
+.gridster gridster-item .yellow {
+    border-color: #FFD200 transparent transparent transparent;
+}
+
+.gridster gridster-item .green {
+    border-color: #8CC63F transparent transparent transparent;
+}
+
+.gridster gridster-item .blue {
+    border-color: #4CB8D2 transparent transparent transparent;
+}
+
+.gridster gridster-item .purple {
+    border-color: #946391 transparent transparent transparent;
+}
+
+.gridster gridster-item .grey {
+    border-color: #ecf0f1 transparent transparent transparent;
+}
+
+.gridster gridster-item > p {
+    margin: 0;
+    padding: 20px;
+}
+
+.gridster gridster-item .name {
+    display: block;
+    text-align: center;
+    margin: 0 0 15px 0;
+    text-decoration: underline;
+}
+
+.gridster gridster-item .surname {
+    text-transform: uppercase;
+}
+
+.loader {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.loader:before {
+    position: absolute;
+    content: '';
+    opacity: .5;
+    background: #ffffff;
+    width: 100%;
+    height: 100%;
+}
+
+.loader md-progress-circle {
+    display: flex;
+    height: 100%;
+    width: 100px;
+    overflow: hidden;
+    margin: auto;
+}
