@@ -29,7 +29,7 @@ import { QuestionComponent } from './question';
 import { UserComponent } from './user';
 
 import { GridStackComponent, GridStackItemDirective } from 'ng2-gridstack/ng2-gridstack';
-import { GridsterModule } from 'angular2gridster';
+import { GridsterModule } from './gridster/gridster.module';
 
 // import { GridsterModule } from 'angular-gridster2';
 import { MaterialModule } from '@angular/material';

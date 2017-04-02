@@ -1,3 +1,24 @@
+.empty-state-home {
+    width: 50%;
+    margin: 30px auto;
+    font-family: 'Nissan';
+}
+
+.empty-state-home md-card-content {
+    padding: 20px;
+}
+
+.empty-state-home md-card-content i {
+    color: #CB0E2C;
+    margin: 0 auto;
+    display: block;
+}
+
+.empty-state-home md-card-content p {
+    font-size: 22px;
+    text-align: justify;
+}
+
 .gridster {
     width: 100%;
     height: 100%;
@@ -10,7 +31,7 @@
     font-size: 28px;
 }
 
-.gridster gridster-item .default-color {
+.default-color {
     position: absolute;
     top:0;
     left:0;
@@ -23,47 +44,79 @@
     border-color: #007bff transparent transparent transparent;
 }
 
-.gridster gridster-item .red {
+.draggable-item {
+    border-bottom: 1px solid #F0F0F0;
+    position: relative;
+    width: 100%;
+    top: 0;
+    cursor: move;
+}
+
+.gridster-item-inner {
+    position: absolute;
+    background: #fff;
+    border: 1px solid transparent;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    font-size: 28px;
+    right: 5px;
+    -webkit-transition: background 3s;
+    transition: background 3s;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.panel-body {
+    overflow: auto;
+    padding: 10px;
+    position: absolute;
+    top: 48px;
+    bottom: 0;
+}
+
+.panel-title {
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+.default-color.red {
     border-color: #EA2F3D transparent transparent transparent;
 }
 
-.gridster gridster-item .orange {
+.default-color.orange {
     border-color: #FF911A transparent transparent transparent;
 }
 
-.gridster gridster-item .yellow {
+.default-color.yellow {
     border-color: #FFD200 transparent transparent transparent;
 }
 
-.gridster gridster-item .green {
+.default-color.green {
     border-color: #8CC63F transparent transparent transparent;
 }
 
-.gridster gridster-item .blue {
+.default-color.blue {
     border-color: #4CB8D2 transparent transparent transparent;
 }
 
-.gridster gridster-item .purple {
+.default-color.purple {
     border-color: #946391 transparent transparent transparent;
 }
 
-.gridster gridster-item .grey {
+.default-color.grey {
     border-color: #ecf0f1 transparent transparent transparent;
 }
 
-.gridster gridster-item > p {
-    margin: 0;
-    padding: 20px;
-}
-
-.gridster gridster-item .name {
+.name {
     display: block;
     text-align: center;
     margin: 0 0 15px 0;
     text-decoration: underline;
 }
 
-.gridster gridster-item .surname {
+.surname {
     text-transform: uppercase;
 }
 

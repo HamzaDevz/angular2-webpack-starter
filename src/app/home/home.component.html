@@ -42,14 +42,23 @@
 <!--&gt;-->
 <!--</gridStack>-->
 
-<gridster [options]="gridsterConfig" [draggableOptions]="gridsterDraggableOptions">
-    <gridster-item *ngFor="let question of widgets" [x]="question.x" [y]="question.y" [w]="question.w" [h]="question.h">
-        <div class="draggable-item">
-            <div class="default-color {{question?.color}}" (click)="changeColor(question)"></div>
-            <div>
-                <span class="name">{{question?.name}} <span class="surname">{{question?.surname}}</span></span>
+<gridster [options]="gridsterConfig" [draggableOptions]="gridsterDraggableOptions" (gridsterPositionChange)="itemChange($event)" #gridster>
+    <gridster-item *ngFor="let question of questions" [x]="question.x" [y]="question.y" data-id="{{question?.id}}" data-lang="{{question?.color}}" [w]="1" [h]="1">
+        <div class="gridster-item-inner">
+            <div class="draggable-item">
+                <div class="default-color {{question?.color}}" (click)="changeColor(question)"></div>
+                <h5 class="panel-title">{{question?.name}} <span class="surname">{{question?.surname}}</span></h5>
+            </div>
+            <div class="panel-body">
                 {{question?.content}}
             </div>
         </div>
     </gridster-item>
 </gridster>
+
+<md-card class="empty-state-home" *ngIf="showEmptyState">
+    <md-card-content>
+        <i class="fa fa-refresh fa-spin fa-3x fa-fw" aria-hidden="true"></i>
+        <p>You don't have any question yet, but you can wait 10 seconds for the automatic update, or refresh your browser.</p>
+    </md-card-content>
+</md-card>
