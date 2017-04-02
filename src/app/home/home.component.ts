@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
                 this.questions = _.reverse(questions);
                 if (!this.storageMode) {
                   this.setCoord(this.questions);
-                  this.itemChange();
+                  this.itemChange(undefined);
                 }
                 this.loader = false;
               });
@@ -105,6 +105,10 @@ export class HomeComponent implements OnInit {
     }
 
     return items;
+  }
+
+  public launchDialog(item: any) {
+    console.log(item);
   }
 
   public ngOnInit() {
@@ -148,7 +152,7 @@ export class HomeComponent implements OnInit {
                 this.setCoord(this.difference);
                 _.forEach(this.difference, (v) => this.questions.push(v));
 
-                this.itemChange();
+                this.itemChange(undefined);
                 message = this.difference.length + ' new card(s) loaded !';
               }
 
@@ -157,7 +161,6 @@ export class HomeComponent implements OnInit {
                   duration: 3000
                 });
               }
-
 
               console.log('question', this.questions);
 
