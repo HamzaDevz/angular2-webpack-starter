@@ -38,6 +38,9 @@ export class QuestionComponent implements OnInit {
     this.question.create(Object.assign(values, this.userData))
         .subscribe((res) => {
           this.loader = false;
+          this.questionForm.patchValue({
+            content: ''
+          });
           this.snackBar.open('Success! Your feedBack was sent !', '', {
             duration: 3000
           });
