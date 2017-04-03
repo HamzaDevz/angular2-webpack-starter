@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
     private user: UserService,
     private snackBar: MdSnackBar,
   ) {
+    _.merge(this.gridsterConfig, window['gridOptions']);
     question.findAll(false)
         .subscribe(
           (questions) => {
